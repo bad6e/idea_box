@@ -1,0 +1,9 @@
+<h2>Category Name: <%= @category.name %></h2>
+
+<h3>Total: <%= pluralize(@category.ideas.count, 'idea') %></h3>
+
+<ul>
+  <% @category.ideas.each do |idea| %>
+    <li><%= idea.name %></li>
+  <% end %>
+</ul>
