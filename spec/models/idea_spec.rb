@@ -26,5 +26,5 @@ RSpec.describe Idea, type: :model do
 
   it 'is associated with a category' do
     expect(idea).to respond_to(:category)
-  ends
+  end
 end
