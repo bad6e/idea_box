@@ -4,6 +4,8 @@
 
 <ul>
   <% @category.ideas.each do |idea| %>
-    <li><%= idea.name %></li>
+    <li><%= idea.name %> <%= link_to 'Edit', edit_idea_path(idea) %> | <%= link_to "Delete", idea_path(idea), method: :delete %></li>
   <% end %>
 </ul>
+
+<%= link_to 'Add a New Idea', new_idea_path(category_id: @category.id) %>
