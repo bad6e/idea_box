@@ -3,11 +3,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:session][:username])
-    if @user && @user.authenticate(params[:session][:password])
+    @user = User.find_by(username: params[:login_credentials][:username])
+    if @user && @user.authenticate(params[:login_credentials][:password])
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to profile_path
     else
+      flash.now[:errors] = "Invalid Login"
       render :new
     end
   end

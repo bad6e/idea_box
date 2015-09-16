@@ -20,4 +20,14 @@ describe 'the user view', type: :feature do
 
     refute page.has_content?("Welcome, Tom")
   end
+
+  it "does not allow a user to leaves all the fields blank" do
+    visit login_path
+    fill_in "Username", with: nil
+    fill_in "Password", with: nil
+    click_button "Login"
+
+    refute page.has_content?("Welcome, Tom")
+    assert page.has_content?("Invalid Login")
+  end
 end

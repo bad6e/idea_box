@@ -7,9 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to profile_path
     else
-      #re-render new view if validations don't pass
+      flash[:errors] = @user.errors.full_messages.join(", ")
+      redirect_to new_user_path
     end
   end
 

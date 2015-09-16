@@ -13,6 +13,12 @@
     <div class="navbar-header">
       <% if current_user%>
         <h6>Welcome, <%= current_user.username %> | <%= link_to "Logout", logout_path, method: :delete %></h6>
+      <% else %>
+        <%= link_to "Login", login_path %> | <%= link_to "Sign Up", new_user_path %>
+      <% end %>
+
+      <% flash.each do |name, message| %>
+        <%= content_tag(:div, message, :id => "flash_#{name}" ) %>
       <% end %>
       </a>
     </div>
