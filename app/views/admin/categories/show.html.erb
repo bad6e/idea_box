@@ -2,10 +2,9 @@
 
 <h3>Total: <%= pluralize(@category.ideas.count, 'idea') %></h3>
 
-<ul>
+<ol>
   <% @category.ideas.each do |idea| %>
-    <li><%= idea.name %> <%= link_to 'Edit', edit_idea_path(idea) %> | <%= link_to "Delete", idea_path(idea), method: :delete %></li>
+    <li><strong>Username: </strong><%= idea.user.username %><br><strong>Idea:</strong> <%= idea.name %><br><strong>Description:</strong><%= idea.description %> </li><br>
   <% end %>
-</ul>
+</ol>
 
-<%= link_to 'Add a New Idea', new_idea_path(category_id: @category.id) %>

@@ -6,13 +6,12 @@ Rails.application.routes.draw do
     resources :categories
   end
 
-  resources :categories
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#delete'
   delete '/logout', to: 'sessions#delete'
 
-  get '/profile', to: "categories#index"
+  get '/profile', to: "ideas#index"
 end

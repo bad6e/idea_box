@@ -1,7 +1,31 @@
-<h2>List of Ideas</h2>
+<div class="container">
+  <div class="row well">
+    <div class="col-md-12">
+      <h2>List of Ideas for <%= current_user.username.capitalize %> </h2>
+    </div>
+  </div>
+</div>
 
-<ol>
-<% @ideas.each do |idea| %>
-  <li><%= idea.name %> - <%= idea.description %></li>
-<% end %>
-</ol>
+<div class="container">
+  <div class="row well">
+    <div class="col-md-12">
+      <ol>
+      <% @ideas.each do |idea| %>
+        <li><strong>Category: </strong><%= idea.category.name%><br>
+         <strong>Idea Name:</strong> <%= idea.name %><br>
+         <strong>Idea Description: </strong> <%= idea.description %><br>
+         <%= link_to "Edit", edit_idea_path(idea) %> | <%= link_to "Delete", idea_path(idea), method: :delete, data: {confirm: "Are you sure you want to delete #{idea.name}"} %>
+       </li><br>
+      <% end %>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row well">
+    <div class="col-md-12">
+      <%= link_to 'Add a New Idea', new_idea_path %>
+    </div>
+  </div>
+</div>
