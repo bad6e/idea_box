@@ -1,3 +1,18 @@
-<h2>Edit Idea: <%= @idea.name %></h2>
+<div class="container">
+  <div class="row well">
+    <div class="col-md-12">
+      <h2>Edit Idea: <%= @idea.name %></h2>
+    </div>
+  </div>
+</div>
 
 <%= render 'form' %>
+
+<div class="container">
+  <div class="row well">
+    <div class="col-md-12">
+      <%= link_to 'Return to Ideas', categories_path %>
+    </div>
+  </div>
+</div>
+

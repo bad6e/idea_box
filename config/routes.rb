@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'sessions#new'
   resources :ideas
+
+  namespace "admin" do
+    resources :categories
+  end
+
   resources :categories
   resources :users, only: [:new, :create]
 
@@ -9,5 +14,5 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#delete'
   delete '/logout', to: 'sessions#delete'
 
-  get '/profile', to: "users#show"
+  get '/profile', to: "categories#index"
 end

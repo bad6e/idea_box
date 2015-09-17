@@ -1,0 +1,9 @@
+<h3>All Categories</h3>
+
+<ol>
+<% @categories.each do |category| %>
+  <li><%= link_to category.name, category %> ... <%= link_to "Edit", edit_admin_category_path(category) %> | <%= link_to "Delete", admin_category_path(category), method: :delete, data: {confirm: "Are you sure you want to delete #{category.name}"} %> </li>
+<% end %>
+</ol>
+
+<%= link_to 'Add a New Category', new_admin_category_path  %>
