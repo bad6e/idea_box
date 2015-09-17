@@ -1,9 +1,10 @@
-<%= form_for(:login_credentials, url: login_path) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %> <br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %> <br>
+      <%= form_for(:login_credentials, url: login_path) do |f| %>
+        <%= f.label :username %>
+        <%= f.text_field :username %> <br>
 
-  <%= f.submit "Login" %>
-<% end %>
+        <%= f.label :password %>
+        <%= f.password_field :password %> <br>
+
+        <%= f.submit "Login" %>
+      <% end %>
