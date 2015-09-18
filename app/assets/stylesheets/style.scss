@@ -1,0 +1,12 @@
+body {
+  height: 100%;
+  width: 100%;
+  background: url(image_path('ocean.jpg')) no-repeat center 30% fixed;
+  background-size: cover;
+  position: relative;
+  padding: 0 0 30px;
+}
+
+#login-header {
+  text-align: center;
+}
