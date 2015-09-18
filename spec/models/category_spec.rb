@@ -18,4 +18,10 @@ RSpec.describe Category, type: :model do
     category.name = "abcdefghijklmnopqrstuvwxyz"
     expect(category).to_not be_valid
   end
+
+  it "must have a reference to an idea" do
+    category.ideas.build(name: 'Zipskee', description: 'People')
+    expect(category.ideas.map(&:name)).to eq(['Zipskee'])
+    expect(category.ideas.map(&:description)).to eq(['People'])
+  end
 end

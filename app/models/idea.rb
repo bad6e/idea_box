@@ -5,7 +5,7 @@ class Idea < ActiveRecord::Base
   has_many :idea_images
   has_many :images, through: :idea_images
 
-  validates :name, :description, :category_id, presence: true
+  validates :name, :user_id, :description, :category_id, presence: true
 
 
   def url_list
