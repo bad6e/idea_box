@@ -10,10 +10,10 @@ describe 'the user view', type: :feature do
     fill_in "Password", with: 'himom'
     click_button "Login"
 
-    assert page.has_content?("Welcome, Bret")
+    assert page.has_content?("List of Ideas for Bret")
 
     click_link ("Logout")
 
-    refute page.has_content?("Welcome, Bret")
+    refute page.has_content?("List of Ideas for Bret")
   end
 end

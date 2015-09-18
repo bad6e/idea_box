@@ -9,7 +9,7 @@ describe 'the user view', type: :feature do
     fill_in "Password", with: 'himom'
     click_button "Login"
 
-    assert page.has_content?("Welcome, Bret")
+    assert page.has_content?("List of Ideas for Bret")
   end
 
   it "does not allow a non-registered user to log in" do
@@ -18,7 +18,7 @@ describe 'the user view', type: :feature do
     fill_in "Password", with: "Hi"
     click_button "Login"
 
-    refute page.has_content?("Welcome, Tom")
+    refute page.has_content?("List of Ideas for Bret")
   end
 
   it "does not allow a user to leaves all the fields blank" do
