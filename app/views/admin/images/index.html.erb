@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row well">
+    <div class="col-md-12">
+      <h2>Add Images</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row well">
+    <div class="col-md-12">
+      <ol>
+      <% @images.each do |image| %>
+        <li><%= link_to image.url, image.url %><br> <%= link_to "Edit", edit_admin_image_path(image) %><br><%= link_to "Delete", admin_image_path(image), method: :delete, data: {confirm: "Are you sure you want to delete #{image.url}"} %></li>
+      <% end %>
+    </ol>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row well">
+    <div class="col-md-12">
+      <%= link_to 'Add a New Image', new_admin_image_path %>
+      </div>
+  </div>
+</div>

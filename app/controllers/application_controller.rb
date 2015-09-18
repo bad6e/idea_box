@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :current_admin?
+  helper_method :current_user, :current_admin?, :image_url_list
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -11,5 +11,9 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def image_url_list
+    Image.all
   end
 end

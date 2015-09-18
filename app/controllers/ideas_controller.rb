@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = current_user.ideas.build(idea_params)
+    @idea = current_user.ideas.new(idea_params)
     if @idea.save
       redirect_to ideas_path
     end
@@ -34,6 +34,6 @@ class IdeasController < ApplicationController
 
   private
     def idea_params
-      params.require(:idea).permit(:name, :description, :category_id)
+      params.require(:idea).permit(:name, :description, :category_id, :url_list)
     end
 end

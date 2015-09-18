@@ -6,7 +6,10 @@
         <%= f.text_field :name %>
         <%= f.label :description %>
         <%= f.text_field :description %>
-        <%= f.collection_select(:category_id, Category.all, :id, :name ) %>
+        <%= f.label :category %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+        <%= f.label :url_list %>
+        <%= f.collection_select(:url_list, Image.all, :url, :url) %>
         <%= f.submit %>
       <% end %>
     </div>

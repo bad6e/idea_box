@@ -14,6 +14,7 @@
         <li><strong>Category: </strong><%= idea.category.name%><br>
          <strong>Idea Name:</strong> <%= idea.name %><br>
          <strong>Idea Description: </strong> <%= idea.description %><br>
+         <strong>Idea Image Url: </strong> <%= idea.images.first%> <br>
          <%= link_to "Edit", edit_idea_path(idea) %> | <%= link_to "Delete", idea_path(idea), method: :delete, data: {confirm: "Are you sure you want to delete #{idea.name}"} %>
        </li><br>
       <% end %>
