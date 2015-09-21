@@ -6,6 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @cat = Category.find(params[:id])
+    @category = @cat.ideas.where(user_id: current_user.id)
   end
 
   private

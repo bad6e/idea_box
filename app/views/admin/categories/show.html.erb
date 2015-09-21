@@ -4,7 +4,7 @@
 
 <ol>
   <% @category.ideas.each do |idea| %>
-    <li><strong>Username: </strong><%= idea.user.username %><br><strong>Idea:</strong> <%= idea.name %><br><strong>Description:</strong><%= idea.description %> </li><br>
+    <li><strong>Username: </strong><%= idea.user %><br><strong>Idea:</strong> <%= idea.name %><br><strong>Description:</strong><%= idea.description %> </li><br>
   <% end %>
 </ol>
 

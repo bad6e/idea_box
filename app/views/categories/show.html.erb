@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row well">
     <div class="col-md-12">
-      <h2>Category Name: <%= @category.name %></h2>
+      <h2>Category Name: <%= @cat.name %></h2>
     </div>
   </div>
 </div>
@@ -9,11 +9,10 @@
 <div class="container">
   <div class="row well">
     <div class="col-md-12">
-      <h3>Total: <%= pluralize(@category.ideas.count, 'idea') %></h3>
       <ol class= "list-group">
         <ol>
-          <% @category.ideas.each do |idea| %>
-            <li class= "list-group-item"><strong>Name:</strong> <%= idea.name %> <br><strong>Description:</strong> <%= idea.description %><br> <%= link_to "Edit", edit_idea_path(idea) %> | <%= link_to "Delete", idea_path(idea), method: :delete, data: {confirm: "Are you sure you want to delete #{idea.name}"} %></li>
+          <% @category.each do |cat| %>
+            <li class= "list-group-item"><strong>Idea Name:</strong> <%= link_to cat.name, ideas_path  %> | <%= link_to "Edit", edit_idea_path(cat) %> | <%= link_to "Delete", idea_path(cat), method: :delete, data: {confirm: "Are you sure you want to delete #{cat.name}"} %>
           <% end %>
         </ol>
       </div>
@@ -23,8 +22,7 @@
 <div class="container">
   <div class="row well">
     <div class="col-md-12">
-      <%= link_to 'Add a New Idea', new_idea_path(category_id: @category.id) %> |
-      <%= link_to 'Return to Categories', categories_path %>
+      <%= link_to 'Return to Categories', categories_path %> | <%= link_to 'Add New Idea', new_idea_path %>
     </div>
   </div>
 </div>

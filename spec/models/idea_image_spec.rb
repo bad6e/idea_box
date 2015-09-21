@@ -10,14 +10,4 @@ RSpec.describe IdeaImage, type: :model do
   it 'is valid' do
     expect(idea_images).to be_valid
   end
-
-  it 'is invalid without an image_id and must reference an image' do
-    idea_images.image_id = nil
-    expect(idea_images).not_to be_valid
-  end
-
-  it 'is invalid without an idea_id and must reference an idea' do
-    idea_images.idea_id = nil
-    expect(idea_images).not_to be_valid
-  end
 end

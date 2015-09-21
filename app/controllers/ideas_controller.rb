@@ -11,7 +11,7 @@ class IdeasController < ApplicationController
   def create
     @idea = current_user.ideas.new(idea_params)
     if @idea.save
-      redirect_to ideas_path
+      redirect_to category_path(idea_params[:category_id])
     end
   end
 
@@ -22,14 +22,15 @@ class IdeasController < ApplicationController
   def update
     @idea = Idea.find(params[:id])
     if @idea.update(idea_params)
-      redirect_to ideas_path
+      redirect_to category_path(idea_params[:category_id])
     end
   end
 
   def destroy
     @idea = Idea.find(params[:id])
+    @category_id = @idea.category_id
     @idea.delete
-    redirect_to ideas_path
+    redirect_to category_path(@category_id)
   end
 
   private

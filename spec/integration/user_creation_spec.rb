@@ -8,7 +8,7 @@ describe 'the user view', type: :feature do
     fill_in "Password", with: 'password'
     click_button 'Create Account'
 
-    assert page.has_content?("List of Ideas for Bret")
+    assert page.has_content?("List of Categories for Bret")
   end
 
   it "does not allow a user to be created without a username" do
@@ -17,7 +17,7 @@ describe 'the user view', type: :feature do
     fill_in "Password", with: 'password'
     click_button "Create Account"
 
-    refute page.has_content?("List of Ideas for Bret")
+    refute page.has_content?("List of Categories for Bret")
     assert page.has_content?("Username can't be blank")
   end
 
@@ -27,7 +27,7 @@ describe 'the user view', type: :feature do
     fill_in "Password", with: nil
     click_button "Create Account"
 
-    refute page.has_content?("List of Ideas for Bret")
+    refute page.has_content?("List of Categories for Bret")
     assert page.has_content?("Password can't be blank")
   end
 
@@ -37,7 +37,7 @@ describe 'the user view', type: :feature do
     fill_in "Password", with: nil
     click_button "Create Account"
 
-    refute page.has_content?("List of Ideas for Bret")
+    refute page.has_content?("List of Categories for Bret")
     assert page.has_content?("Username can't be blank")
     assert page.has_content?("Password can't be blank")
   end
@@ -48,11 +48,11 @@ describe 'the user view', type: :feature do
     fill_in "Password", with: 'password'
     click_button 'Create Account'
 
-    assert page.has_content?("List of Ideas for Bret")
+    assert page.has_content?("List of Categories for Bret")
 
     click_link ("Logout")
 
-    refute page.has_content?("List of Ideas for Bret")
+    refute page.has_content?("List of Categories for Bret")
 
     visit new_user_path
     fill_in "Username", with: 'Bret'
