@@ -11,7 +11,7 @@ RSpec.describe Idea, type: :model do
 
   it 'is invalid without a name' do
     idea.name = nil
-    expect(idea).not_to be_valid
+    expect(idea).not_to be_invalid
   end
 
   it 'is invalid without a description' do
